@@ -10,15 +10,22 @@
     mod(CodeMirror);
 })(function(CodeMirror) {
   "use strict";
-
-  var keywords = ("this super static final const abstract class extends external factory " +
-    "implements mixin get native set typedef with enum throw rethrow assert break case " +
-    "continue default in return new deferred async await covariant try catch finally " +
-    "do else for if switch while import library export part of show hide is as extension " +
-    "on yield late required sealed base interface when inline").split(" ");
-  var blockKeywords = "try catch finally do else for if switch while".split(" ");
-  var atoms = "true false null".split(" ");
-  var builtins = "void bool num int double dynamic var String Null Never".split(" ");
+  
+  var keywords = keywords = [
+    "this", "super", "static", "final", "const", "abstract", "class", "extends",
+    "external", "factory", "implements", "mixin", "get", "native", "set", 
+    "typedef", "with", "enum", "throw", "rethrow", "assert", "break", "case",
+    "continue", "default", "in", "return", "new", "deferred", "async", "await",
+    "covariant", "try", "catch", "finally", "do", "else", "for", "if", "switch",
+    "while", "import", "library", "export", "part", "of", "show", "hide", "is",
+    "as", "extension", "extension type", "on", "yield", "late", "required",
+    "sealed", "base", "interface", "when",
+  ];
+  var blockKeywords = ["try", "catch", "finally", "do", "else", 
+    "for", "if", "switch", "while"]
+  var atoms = ["true", "false", "null"];
+  var builtins = ["void", "bool", "num", "int", "double", "dynamic", 
+    "var", "String", "Null", "Never"];
 
   function set(words) {
     var obj = {};
